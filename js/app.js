@@ -13,6 +13,7 @@ let counter = document.querySelector('.moves');
 
 //variables for rating
 let ratingStars = document.querySelectorAll('.fa-star');
+
 let starList = document.querySelectorAll('.stars li');
 
 //matched cards
@@ -21,7 +22,10 @@ let matchedCards = document.getElementsByClassName('match');
 //open cards array
 let openCards = [];
 
+//modal
+var modal = document.getElementById('modal');
 
+var closeModal = document.getElementsByClassName("modalClose")[0];
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -111,3 +115,30 @@ function unmatched(){
 		openCards = [];
 	}, 1000);
 };
+
+//Congratulations modal
+
+function congratsModal() {
+	if (matchedCards.length == 16) {
+		modal.classList.add('show');
+	}
+};
+congratsModal();
+
+
+/*btn.onclick = function() {
+    modal.style.display = "flex";
+};*/
+
+closeModal.onclick = function() {
+    modal.style.display = "none";
+};
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
+
+
