@@ -30,17 +30,17 @@ var closeModal = document.getElementsByClassName("modalClose")[0];
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+	var currentIndex = array.length, temporaryValue, randomIndex;
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
+	while (currentIndex !== 0) {
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
 
-    return array;
+	return array;
 };
 
 
@@ -53,12 +53,12 @@ function shuffle(array) {
  	//card.classList.remove('open', 'show', 'disabled', 'matched', 'unmatched');	
 
 
-window.onload = initGame();
-console.log (shuffle(cards));
+ 	window.onload = initGame();
+ 	console.log (shuffle(cards));
 
 
-function initGame(){
-	cards = shuffle(cards);
+ 	function initGame(){
+ 		cards = shuffle(cards);
 	//remove existing classes
 	
 	
@@ -71,25 +71,25 @@ cards.forEach(function(card){
 		this.classList.add('open', 'show', 'disabled');
 		
 		if (card.classList.contains('open') || card.classList.contains('show')){
-		openCards.push(card);
-	 }
+			openCards.push(card);
+		}
 		if (openCards.length === 2){
 			test();
 		}
-  })
+	})
 });
 
 //function to test if cards match
 function test() {
-		
-			let cardOneType = openCards[0].dataset.card;
-			let cardTwoType = openCards[1].dataset.card;
-		
-				if (cardOneType === cardTwoType) {
-					matched();
-				} else {
-					unmatched();
-				}
+	
+	let cardOneType = openCards[0].dataset.card;
+	let cardTwoType = openCards[1].dataset.card;
+	
+	if (cardOneType === cardTwoType) {
+		matched();
+	} else {
+		unmatched();
+	}
 };
 
 //what board looks like when cards match
@@ -107,8 +107,8 @@ function matched(){
 
 //what board looks like when cards don't match
 function unmatched(){
-		openCards[0].classList.add('unmatched', 'disabled');
-		openCards[1].classList.add('unmatched', 'disabled');
+	openCards[0].classList.add('unmatched', 'disabled');
+	openCards[1].classList.add('unmatched', 'disabled');
 	setTimeout(function(){
 		openCards[0].classList.remove('show', 'open', 'unmatched', 'disabled');
 		openCards[1].classList.remove('show', 'open', 'unmatched', 'disabled');
@@ -131,13 +131,13 @@ congratsModal();
 };*/
 
 closeModal.onclick = function() {
-    modal.style.display = "none";
+	modal.style.display = "none";
 };
 
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
 };
 
 
