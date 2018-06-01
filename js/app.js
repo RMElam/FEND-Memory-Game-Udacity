@@ -17,7 +17,7 @@ let ratingStars = document.querySelectorAll('.fa-star');
 let starList = document.querySelectorAll('.stars li');
 
 //matched cards
-let matchedCards = document.getElementsByClassName('match');
+let matchedCards = [];
 
 //open cards array
 let openCards = [];
@@ -81,10 +81,10 @@ cards.forEach(function(card){
 
 //function to test if cards match
 function test() {
-	
+
 	let cardOneType = openCards[0].dataset.card;
 	let cardTwoType = openCards[1].dataset.card;
-	
+
 	if (cardOneType === cardTwoType) {
 		matched();
 	} else {
@@ -116,19 +116,22 @@ function unmatched(){
 	}, 1000);
 };
 
-//Congratulations modal
 
-function congratsModal() {
-	if (matchedCards.length == 16) {
-		modal.classList.add('show');
+
+//push matched cards to array and call modal
+cards.forEach(function(card){
+if (card.classList.contains('match')) {
+	matchedCards.push(card);
 	}
+if (matchedCards.length === 16){
+	congratsModal();
+   }
+});
+
+//Congratulations modal
+function congratsModal() {
+	modal.classList.add('show');
 };
-congratsModal();
-
-
-/*btn.onclick = function() {
-    modal.style.display = "flex";
-};*/
 
 closeModal.onclick = function() {
 	modal.style.display = "none";
