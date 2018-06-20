@@ -79,9 +79,9 @@ playGame();
  			if (openCards.length === 2) {
  				moveCounter();
  				test();
-  			}
+ 			}
  		});
-	 }
+ 	}
  };
 
  function test() {
@@ -103,7 +103,7 @@ playGame();
  		openCards[0].classList.remove('show', 'open');
  		openCards[1].classList.remove('show', 'open');
  		openCards = [];
-	}, 1000);
+ 	}, 1000);
  };
 
  function unmatched() {
@@ -143,4 +143,4 @@ function congratsModal() {
 		//show modal
 		modal.style.display = "flex";
 	}
- };
+};
