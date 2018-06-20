@@ -15,7 +15,7 @@ let openCards = [];
 
 //matched cards/ matched cards array
 let matchedCards = document.getElementsByClassName('match');
-let matches = [];
+
 
 //moves counter
 let moves = 0
@@ -137,7 +137,7 @@ restartButton();
 
 //congrats modal
 function congratsModal() {
-	if (matches.length == 16) {
+	if (matcheCards.length == 16) {
 		totalMoves = moves.innerHTML;
 		console.log(matchedCards);
 		//show modal
