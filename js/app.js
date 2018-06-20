@@ -137,7 +137,7 @@ restartButton();
 
 //congrats modal
 function congratsModal() {
-	if (matcheCards.length == 16) {
+	if (matchedCards.length == 16) {
 		totalMoves = moves.innerHTML;
 		console.log(matchedCards);
 		//show modal
