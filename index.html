@@ -30,68 +30,17 @@
         	</div>
         </section>
 
-        <ul class="deck">
-            <li class="card" data-card = "fa-diamond">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card" data-card = "fa-paper-plane-o">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card" data-card = "fa-anchor">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card" data-card = "fa-bolt">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card" data-card = "fa-cube">
-                <i class="fa fa-cube"></i>
-            </li>
-            <li class="card" data-card = "fa-anchor">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card" data-card = "fa-leaf">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card" data-card = "fa-bicycle">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card" data-card = "fa-diamond">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card" data-card = "fa-bomb">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card" data-card = "fa-leaf">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card" data-card = "fa-bomb">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card" data-card = "fa-bolt">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card" data-card = "fa-bicycle">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card" data-card = "fa-paper-plane-o">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card" data-card = "fa-cube">
-                <i class="fa fa-cube"></i>
-            </li>
-        </ul>
+        <ul class="deck" id="deck"></ul>   
+        
     </div>
 
     <div id="modal" class="modalOverlay">
         <div class="modal-box">
             <span class="modalClose">&times;</span>
-            <p>
-                <div> id="modal-text">
-                    Congratulations! You did it!
-                    Moves: <span id = moves></span>
-                    Rating: <span id = starRating></span>
-                </div>
-            </p>
+            <div id="modal-text">
+                <h1>Congratulations!</h1> 
+                <p>You did it in <span id = totalMoves> moves!</span></p>
+            </div>
         </div>
     </div>
 
