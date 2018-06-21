@@ -13,7 +13,7 @@ let card = document.getElementsByClassName("card");
 //open cards array
 let openCards = [];
 
-//matched cards/ matched cards array
+//matched cards
 let matchedCards = document.getElementsByClassName('match');
 
 
@@ -40,11 +40,12 @@ function shuffle(array) {
 	return array;
 };
 
- //start game (shuffle cards, reset counter, reset rating, turn cards back over)
+ //creates the cards
  function createCard(card) {
  	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`
  };
 
+//shuffles cards and begins game
  function startGame(){
  	let deck = document.querySelector('.deck');
  	let cardHTML = shuffle(cards).map(function(card){
@@ -62,7 +63,6 @@ function shuffle(array) {
 	let moves = 0
 	counter.innerHTML = moves;
 };
-
 startGame();
 playGame();
 
@@ -70,10 +70,15 @@ playGame();
  function playGame() {
  	for (let i=0; i<cards.length; i++) {
  		card[i].addEventListener('click', function() {
- 			this.classList.add('open', 'show');
+ 			this.classList.add('open', 'show', 'disabled');
 
- 			if(this.classList.contains('open') || this.classList.contains('show')) {
+ 			if (this.classList.contains('open') || this.classList.contains('show') || this.classList.contains('disabled')) {
  				openCards.push(this);
+ 				console.log(openCards);
+ 			}
+
+ 			if (openCards.length > 2){
+ 				this.classList.remove('open', 'show', 'disabled');
  			}
 
  			if (openCards.length === 2) {
@@ -84,6 +89,7 @@ playGame();
  	}
  };
 
+  //testing cards function
  function test() {
  	let cardOneType = openCards[0].dataset.card;
  	let cardTwoType = openCards[1].dataset.card;
@@ -96,6 +102,7 @@ playGame();
  	}
  };
 
+//cards when matched
  function matched() {
  	openCards[0].classList.add('match', 'disabled');
  	openCards[1].classList.add('match', 'disabled');
@@ -106,6 +113,7 @@ playGame();
  	}, 1000);
  };
 
+//cards when unmatched
  function unmatched() {
  	openCards[0].classList.add('unmatched', 'disabled');
  	openCards[1].classList.add('unmatched', 'disabled');
@@ -122,7 +130,6 @@ function moveCounter(){
 	counter.innerHTML = moves;
 };
 
-
 //restart button
 function restartButton(){
 	let restart = document.querySelector('.restart');
@@ -132,7 +139,6 @@ function restartButton(){
 		moves = 0;
 	});
 };
-
 restartButton();
 
 //congrats modal
