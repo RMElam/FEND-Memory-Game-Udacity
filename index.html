@@ -8,6 +8,7 @@
         <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
         <link rel="stylesheet" href="css/app.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <body>
 
@@ -26,24 +27,15 @@
             	<span class="moves">3</span> Moves
 
                 <div class="restart">
-            		<i class="fa fa-repeat"></i>
-            	</div>
-            </section>
+                  <i class="fa fa-repeat"></i>
+              </div>
+          </section>
 
-            <ul class="deck" id="deck"></ul>   
-            
-        </div>
-
-        <div id="modal" class="modalOverlay">
-            <div class="modal-box">
-                <span class="modalClose">&times;</span>
-                <div id="modal-text">
-                    <h1>Congratulations!</h1> 
-                    <p>You did it in <span id = totalMoves> moves!</span></p>
-                </div>
-            </div>
-        </div>
-
-        <script src="js/app.js"></script>
-    </body>
-    </html>
+          <ul class="deck" id="deck"></ul>   
+          
+      </div>
+      
+      <script src="js/app.js"></script>
+      
+  </body>
+  </html>

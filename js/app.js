@@ -20,10 +20,6 @@ let matchedCards = document.getElementsByClassName('match');
 //moves counter
 let moves = 0
 let counter = document.querySelector('.moves');
-let totalMoves = document.getElementById('totalMoves');
-
-//congrats modal
-let modal = document.getElementById('modal');
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -46,13 +42,13 @@ function shuffle(array) {
  };
 
 //shuffles cards and begins game
- function startGame(){
- 	let deck = document.querySelector('.deck');
- 	let cardHTML = shuffle(cards).map(function(card){
- 		return createCard(card);
- 	});
+function startGame(){
+	let deck = document.querySelector('.deck');
+	let cardHTML = shuffle(cards).map(function(card){
+		return createCard(card);
+	});
 
- 	deck.innerHTML = cardHTML.join('');
+	deck.innerHTML = cardHTML.join('');
 
  	//removes existing classes
  	for(let i=0; i<cards.length; i++){
@@ -74,7 +70,6 @@ playGame();
 
  			if (this.classList.contains('open') || this.classList.contains('show') || this.classList.contains('disabled')) {
  				openCards.push(this);
- 				console.log(openCards);
  			}
 
  			if (openCards.length > 2){
@@ -90,39 +85,39 @@ playGame();
  };
 
   //testing cards function
- function test() {
- 	let cardOneType = openCards[0].dataset.card;
- 	let cardTwoType = openCards[1].dataset.card;
+  function test() {
+  	let cardOneType = openCards[0].dataset.card;
+  	let cardTwoType = openCards[1].dataset.card;
 
- 	if (cardOneType === cardTwoType) {
- 		matched();
- 		
- 	} else {
- 		unmatched();
- 	}
- };
+  	if (cardOneType === cardTwoType) {
+  		matched();
+
+  	} else {
+  		unmatched();
+  	}
+  };
 
 //cards when matched
- function matched() {
- 	openCards[0].classList.add('match', 'disabled');
- 	openCards[1].classList.add('match', 'disabled');
- 	setTimeout(function(){
- 		openCards[0].classList.remove('show', 'open');
- 		openCards[1].classList.remove('show', 'open');
- 		openCards = [];
- 	}, 1000);
- };
+function matched() {
+	openCards[0].classList.add('match', 'disabled');
+	openCards[1].classList.add('match', 'disabled');
+	setTimeout(function(){
+		openCards[0].classList.remove('show', 'open');
+		openCards[1].classList.remove('show', 'open');
+		openCards = [];
+	}, 1000);
+};
 
 //cards when unmatched
- function unmatched() {
- 	openCards[0].classList.add('unmatched', 'disabled');
- 	openCards[1].classList.add('unmatched', 'disabled');
- 	setTimeout(function(){
- 		openCards[0].classList.remove('show', 'open', 'unmatched', 'disabled');
- 		openCards[1].classList.remove('show', 'open', 'unmatched', 'disabled');
- 		openCards = [];
- 	}, 1000);
- };
+function unmatched() {
+	openCards[0].classList.add('unmatched', 'disabled');
+	openCards[1].classList.add('unmatched', 'disabled');
+	setTimeout(function(){
+		openCards[0].classList.remove('show', 'open', 'unmatched', 'disabled');
+		openCards[1].classList.remove('show', 'open', 'unmatched', 'disabled');
+		openCards = [];
+	}, 1000);
+};
 
 //moves counter
 function moveCounter(){
@@ -142,11 +137,21 @@ function restartButton(){
 restartButton();
 
 //congrats modal
-function congratsModal() {
+function congratsModal(){
+	let totalCount = counter.innerHTML;
 	if (matchedCards.length == 16) {
-		totalMoves = moves.innerHTML;
-		console.log(matchedCards);
-		//show modal
-		modal.style.display = "flex";
+		swal({
+			title: "Congratulations!",
+			text: `"You did it in ${totalCount} moves!"`
+		})
 	}
 };
+
+//event listener to run congrats modal
+for(let i=0; i<cards.length; i++) {
+	card[i].addEventListener('click', congratsModal);
+};
+
+
+
+
