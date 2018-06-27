@@ -112,6 +112,11 @@
         color: #eaf90c;
     }
 
+    .timer {
+        display: inline-block;
+        margin: 0 1rem;
+    }
+
     .score-panel .restart {
         float: right;
         cursor: pointer;
