@@ -122,4 +122,43 @@
         cursor: pointer;
     }
 
+    /*
+     * Media Queries
+     */
     
+    @media (max-width: 320px) {
+        .deck {
+            width: 85%;
+        }
+
+        .deck .card {
+            height: 4.7rem;
+            width: 4.7rem;
+        }
+    }
+
+
+    /* 
+     * For larger screens
+     */
+
+    @media (min-width: 768px) {
+        .container {
+            font-size: 22px;
+        }
+
+        .score-panel {
+            width: 450px;
+        }
+
+        .deck {
+            width: 660px;
+            height: 680px;
+        }
+
+        .deck .card {
+            height: 125px;
+            width: 125px;
+        }
+
+    }
